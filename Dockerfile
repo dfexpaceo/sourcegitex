@@ -2,11 +2,11 @@ FROM microsoft/aspnetcore-build:2.0 AS build-env
 WORKDIR /app
 
 # Copy csproj and restore as distinct layers
-COPY *.csproj ./
+COPY *.csproj ./WindowsFormsApp1/WindowsFormsApp1/
 RUN dotnet restore
 
 # Copy everything else and build
-COPY . ./
+COPY . ./WindowsFormsApp1/WindowsFormsApp1/
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
